@@ -1,8 +1,12 @@
 package com.example.a20190423_homework;
 
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 
 import com.example.a20190423_homework.adapters.RoomAdapter;
 import com.example.a20190423_homework.databinding.ActivityMainBinding;
@@ -27,7 +31,24 @@ public class MainActivity extends AppCompatActivity {
 
         mRoomAdapter = new RoomAdapter(MainActivity.this, roomList);
         act.roomListView.setAdapter(mRoomAdapter);
+
+        act.roomListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                Room clickRoomData = roomList.get(position);
+
+                Intent intent = new Intent(MainActivity.this, DetailRoomActivity.class);
+                intent.putExtra("방정보", clickRoomData);
+                startActivity(intent);
+
+            }
+        });
+
     }
+
+
+
 
     void fillRoom(){
 

@@ -1,6 +1,8 @@
 package com.example.a20190423_homework.datas;
 
-public class Room {
+import java.io.Serializable;
+
+public class Room implements Serializable {
 
     public int deposit; // 보증금
     public int month_pay; //월세
