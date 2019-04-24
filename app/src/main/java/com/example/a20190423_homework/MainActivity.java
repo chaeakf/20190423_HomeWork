@@ -45,6 +45,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        act.roomListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                roomList.remove(position);
+
+                mRoomAdapter.notifyDataSetChanged();
+
+                return true;
+            }
+        });
+
     }
 
 
