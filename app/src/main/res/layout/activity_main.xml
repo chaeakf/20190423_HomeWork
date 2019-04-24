@@ -8,6 +8,12 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <Button
+        android:id="@+id/addRoomBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="방추가하기"/>
+
     <ListView
         android:id="@+id/roomListView"
         android:layout_width="match_parent"

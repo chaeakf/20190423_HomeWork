@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
         mRoomAdapter = new RoomAdapter(MainActivity.this, roomList);
         act.roomListView.setAdapter(mRoomAdapter);
-
+        // 클릭시 룸 상세페이지
         act.roomListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //롱클릭시 룸 삭제
         act.roomListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
@@ -55,6 +56,18 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+
+        act.addRoomBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                roomList.add(new Room(110,33,"경상북도 구미시 신평동",42,"분리형원룸","놀자놀자놀자"));
+                mRoomAdapter.notifyDataSetChanged();
+
+                act.roomListView.smoothScrollToPosition(roomList.size()-1);
+
+            }
+        });
+
 
     }
 
